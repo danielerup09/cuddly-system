@@ -1,1 +1,36 @@
-
+#1.Função para calcular a média
+def calcular_media(lista_notas):
+    if len(lista_notas) == 0:
+        return 0
+    total = sum(lista_notas)  # Soma todos os valores da lista 
+    media = total / len(lista_notas)  # Divide a soma pela quantidade de itens
+    return media
+# 2.Cadastro de Notas
+notas = []  # Lista para armazenar as notas 
+print("--- Cadastro de Notas ---")
+print("Digite as notas dos alunos (ou -1 para encerrar):")
+while True:
+    # Captura a entrada e converte para float para aceitar casas decimais 
+    try:
+        entrada = float(input("Digite a nota: "))
+    except ValueError:
+        print("Entrada inválida! Por favor, digite um número.")
+        continue
+    if entrada == -1:
+        break  # Comando para interromper a repetição [3, 4]
+    if 0 <= entrada <= 10:
+        notas.append(entrada)  # Adiciona a nota à lista [5]
+    else:
+        print("Nota inválida! Digite um valor entre 0 e 10.")
+# 3.Cálculo da Média e Determinação da Situação
+media_final = calcular_media(notas)
+# Estrutura condicional para determinar a situação [6, 7]
+if media_final >= 7:
+    situacao = "Aprovado"
+else:
+    situacao = "Reprovado"
+# 4.Relatório Final
+print("\n--- Relatório Final ---")
+print(f"Notas inseridas: {notas}")
+print(f"Média das notas: {media_final:.2f}")  # Formatação para 2 casas decimais 
+print(f"Situação do aluno: {situacao}")
